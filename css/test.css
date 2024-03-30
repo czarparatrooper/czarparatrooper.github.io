@@ -1,7 +1,7 @@
 @font-face {
     font-family: '123';
     /* 自定义字体名称 */
-    src: url('"F:\blog\source\butterfly\css\123.ttf"');
+    src: url('"F:\blog\themes\butterfly\source\css\123.ttf"');
     /* 引入字体文件的路径 */
 }
 
