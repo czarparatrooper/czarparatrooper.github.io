@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title>git工作流</title>
+      <link href="/2024/07/15/git%E5%B7%A5%E4%BD%9C%E6%B5%81/git%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
+      <url>/2024/07/15/git%E5%B7%A5%E4%BD%9C%E6%B5%81/git%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
+      
+        <content type="html"><![CDATA[<h1 id="git工作流"><a href="#git工作流" class="headerlink" title="git工作流"></a>git工作流</h1><h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>c语言学习笔记</title>
       <link href="/2024/06/24/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2024/06/24/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<h1 id="流（stream）"><a href="#流（stream）" class="headerlink" title="流（stream）"></a>流（stream）</h1><h2 id="1-文件流"><a href="#1-文件流" class="headerlink" title="1. 文件流"></a>1. 文件流</h2><p>磁盘： 用于读取与写入在磁盘上的文件。</p><h2 id="2-标准I-O流"><a href="#2-标准I-O流" class="headerlink" title="2. 标准I&#x2F;O流"></a>2. 标准I&#x2F;O流</h2><ol><li>stdin：<br>默认连接到键盘，用于程序输入</li><li>stdout：</li></ol><p>​默认连接到控制台或者是屏幕，用于程序输出</p><ol start="3"><li><p>stderr：</p><p>默认也连接到控制台或者屏幕，专门输出错误信息和警告，使得其能够被区分开或者是重定向到不同的目的地</p></li></ol><h2 id="3-管道流"><a href="#3-管道流" class="headerlink" title="3. 管道流"></a>3. 管道流</h2><p>用于进程之间的通信（IPC），允许一个进程的输出成为另一个进程的输入  </p><p>popen();</p><h2 id="4-内存流"><a href="#4-内存流" class="headerlink" title="4.内存流"></a>4.内存流</h2><p>允许你将流与内存缓冲区关联，使得你可以向内存中读写数据，就像操作文件一样。POSIX -&gt; fmemopen</p><h2 id="5-网络流"><a href="#5-网络流" class="headerlink" title="5. 网络流"></a>5. 网络流</h2><p>套接字（Sockets）</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="流（stream）"><a href="#流（stream）" class="headerlink" title="流（stream）"></a>流（stream）</h1><h2 id="1-文件流"><a href="#1-文件流" class="headerlink" title="1. 文件流"></a>1. 文件流</h2><p>磁盘： 用于读取与写入在磁盘上的文件。</p><h2 id="2-标准I-O流"><a href="#2-标准I-O流" class="headerlink" title="2. 标准I&#x2F;O流"></a>2. 标准I&#x2F;O流</h2><ol><li>stdin：<br>默认连接到键盘，用于程序输入</li><li>stdout：</li></ol><p>​默认连接到控制台或者是屏幕，用于程序输出</p><ol start="3"><li><p>stderr：</p><p>默认也连接到控制台或者屏幕，专门输出错误信息和警告，使得其能够被区分开或者是重定向到不同的目的地</p></li></ol><h2 id="3-管道流"><a href="#3-管道流" class="headerlink" title="3. 管道流"></a>3. 管道流</h2><p>用于进程之间的通信（IPC），允许一个进程的输出成为另一个进程的输入  </p><p>popen();</p><h2 id="4-内存流"><a href="#4-内存流" class="headerlink" title="4.内存流"></a>4.内存流</h2><p>允许你将流与内存缓冲区关联，使得你可以向内存中读写数据，就像操作文件一样。POSIX -&gt; fmemopen</p><h2 id="5-网络流"><a href="#5-网络流" class="headerlink" title="5. 网络流"></a>5. 网络流</h2><p>套接字（Sockets）</p><h2 id="6-设备流"><a href="#6-设备流" class="headerlink" title="6. 设备流"></a>6. 设备流</h2><p>特殊文件或者是设备</p><p>例如：打印机</p>]]></content>
       
       
       
