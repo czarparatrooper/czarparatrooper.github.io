@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>hexo图片插入失败的解决方法</title>
+      <link href="/2024/07/17/hexo%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+      <url>/2024/07/17/hexo%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>本人根据<a href="https://hexo.io/zh-cn/docs/asset-folders">hexo官方文档</a>来解决问题。</p><ol><li><p>在博客所在文件夹的目录中找到_config.yml,并将文件中的post_asset_folder选项设置为true来打开。</p><p><img src="/2024/07/17/hexo%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/Snipaste_2024-07-17_19-16-04.png"></p></li></ol><p>根据官方文档的介绍，在资源文件管理功能打开以后，hexo将会在每一次通过*hexo new <title>*命令创建新文章时自动创建一个与文章同名的文件夹，将所有与文章有关的资源都会被放在这个文件夹中，方便后续的管理。</title></p><ol start="2"><li><p>官方文档提供了两种方法，我这里采用了第二种方法，感兴趣的也可以去官方文档看看第一种方法。下载hexo-renderer-marked插件，这个可以直接在markdown中嵌入图片。</p><p>在博客文件夹下打开终端输入</p><p><em>npm install hexo-renderer-marked –save</em></p><p>如果速度很慢，导致无法下载的情况，可以选择配置路径为taobao的免费registry：</p><p><em>npm config set registry <a href="https://r/">https://r</a></em>egistry.npm.taobao.org</p><p>配置后可通过下面方式来验证时候成功</p><p><em>npm config get registry</em>或者<em>npm info express</em></p><p>然后还是在_config.yml中修改：</p><p><img src="/2024/07/17/hexo%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/Snipaste_2024-07-17_20-14-17.png"></p><p>启用后，资源图片将会被自动解析为其对应文章的路径。 例如： <code>image.jpg</code> 位置为 <code>/2020/01/02/foo/image.jpg</code> ，这表示它是 <code>/2020/01/02/foo/</code> 文章的一张资源图片， <code>![](image.jpg)</code> 将会被解析为 <code>&lt;img src=&quot;/2020/01/02/foo/image.jpg&quot;&gt;</code> 。</p></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git工作流</title>
       <link href="/2024/07/15/git%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
       <url>/2024/07/15/git%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
