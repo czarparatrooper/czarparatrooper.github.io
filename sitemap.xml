@@ -99,13 +99,6 @@
   </url>
   
   <url>
-    <loc>http://czarparatrooper.github.io/tags/%E6%B5%81%EF%BC%88stream%EF%BC%89/</loc>
-    <lastmod>2024-09-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://czarparatrooper.github.io/tags/hexo/</loc>
     <lastmod>2024-09-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -120,7 +113,7 @@
   </url>
   
   <url>
-    <loc>http://czarparatrooper.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>http://czarparatrooper.github.io/tags/%E6%B5%81%EF%BC%88stream%EF%BC%89/</loc>
     <lastmod>2024-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -128,6 +121,13 @@
   
   <url>
     <loc>http://czarparatrooper.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2024-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://czarparatrooper.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2024-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
