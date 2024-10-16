@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>排序</title>
+      <link href="/2024/10/16/%E6%8E%92%E5%BA%8F/"/>
+      <url>/2024/10/16/%E6%8E%92%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="快速排序法"><a href="#快速排序法" class="headerlink" title="快速排序法"></a>快速排序法</h1><ul><li>确定分界点：一般为数组最左边，最右边或者中间的元素</li><li>调整范围：左段的所有数应该都小于分界点的数，右段的数应该都大于分界点的数</li></ul><p>设置两个指针，一个指向数组最左边，一个指向数组最右边。左指针向右移动，直到遇到不小于分界点的数，进而右指针向左移动，直到遇到不大于分界点的数，然后将左右指针指向的数进行交换。交换后，左指针继续向右移动，循环上面的过程，直到左右两指针相遇，此时左右两段应该已经被分好。</p><ul><li>递归处理左右两段</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> l, <span class="type">int</span> r)</span> &#123;</span><br><span class="line"><span class="comment">//当左指针大于等于右指针时返回</span></span><br><span class="line">    <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line"><span class="comment">//设置分界点，左右指针</span></span><br><span class="line"><span class="type">int</span> <span class="variable">pos</span> <span class="operator">=</span> arr[l], i = l - <span class="number">1</span>, j = r + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">        <span class="comment">//判断左段</span></span><br><span class="line"><span class="keyword">while</span> (arr[++i] &lt; pos) &#123;&#125;</span><br><span class="line">        <span class="comment">//判断右段</span></span><br><span class="line">        <span class="keyword">while</span> (arr[--j] &gt; pos) &#123;&#125;</span><br><span class="line">        <span class="comment">//交换左右指针对应的值</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">            arr[i] = arr[j];</span><br><span class="line">            arr[j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">//递归处理</span></span><br><span class="line">quickSort(arr, l, j);</span><br><span class="line">    quickSort(arr, j+<span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="并归排序法"><a href="#并归排序法" class="headerlink" title="并归排序法"></a>并归排序法</h1>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 排序 </tag>
+            
+            <tag> 分治 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>shell</title>
       <link href="/2024/09/28/shell/"/>
       <url>/2024/09/28/shell/</url>
