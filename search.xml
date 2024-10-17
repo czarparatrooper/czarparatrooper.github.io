@@ -99,44 +99,6 @@
     
     
     <entry>
-      <title>c语言学习笔记</title>
-      <link href="/2024/06/24/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-      <url>/2024/06/24/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-      
-        <content type="html"><![CDATA[<h1 id="流（stream）"><a href="#流（stream）" class="headerlink" title="流（stream）"></a>流（stream）</h1><h2 id="1-文件流"><a href="#1-文件流" class="headerlink" title="1. 文件流"></a>1. 文件流</h2><p>磁盘： 用于读取与写入在磁盘上的文件。</p><h2 id="2-标准I-O流"><a href="#2-标准I-O流" class="headerlink" title="2. 标准I&#x2F;O流"></a>2. 标准I&#x2F;O流</h2><ol><li>stdin：<br>默认连接到键盘，用于程序输入</li><li>stdout：</li></ol><p>​默认连接到控制台或者是屏幕，用于程序输出</p><ol start="3"><li><p>stderr：</p><p>默认也连接到控制台或者屏幕，专门输出错误信息和警告，使得其能够被区分开或者是重定向到不同的目的地</p></li></ol><h2 id="3-管道流"><a href="#3-管道流" class="headerlink" title="3. 管道流"></a>3. 管道流</h2><p>用于进程之间的通信（IPC），允许一个进程的输出成为另一个进程的输入  </p><p>popen();</p><h2 id="4-内存流"><a href="#4-内存流" class="headerlink" title="4.内存流"></a>4.内存流</h2><p>允许你将流与内存缓冲区关联，使得你可以向内存中读写数据，就像操作文件一样。POSIX -&gt; fmemopen</p><h2 id="5-网络流"><a href="#5-网络流" class="headerlink" title="5. 网络流"></a>5. 网络流</h2><p>套接字（Sockets）</p><h2 id="6-设备流"><a href="#6-设备流" class="headerlink" title="6. 设备流"></a>6. 设备流</h2><p>特殊文件或者是设备</p><p>例如：打印机</p><h1 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h1><p>a &gt; 分配机制</p><p>b &gt; 生命周期</p><p>c &gt; 访问速度</p><p>d &gt; 用途区分</p><h2 id="栈内存（Stack-Memeory）："><a href="#栈内存（Stack-Memeory）：" class="headerlink" title="栈内存（Stack Memeory）："></a>栈内存（Stack Memeory）：</h2><p>a. 自动管理机制: 函数调用时候，局部变量会被分配在栈上，当函数返回时候，局部变量全部销毁释放。</p><p>b. 速度快： 栈内存的分配和访问速度通常要比堆内存快，它是一种线性的数据结构</p><p>c. 大小有限制：栈的大小，在程序启动的那一刹那就意味着已经确定。如果栈的内存空间被耗尽，就意味着崩溃，栈溢出。</p><p>d.存储函数的局部变量，函数参数，函数调用的返回地址。</p><h2 id="堆内存（Heap-Memeory）"><a href="#堆内存（Heap-Memeory）" class="headerlink" title="堆内存（Heap Memeory）"></a>堆内存（Heap Memeory）</h2><p>a. 动态管理：malloc, calloc, realloc, free</p><p>b. 速度相较于栈有点慢：它需要在内存中寻找足够大的连续空间块。</p><p>c. 大小灵活：堆的大小通常受到可用系统内存的限制，而非栈本身的限制。它能够支持动态按需分配大量内存。</p><p>d.存储长期存在的大型数据结构</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 流（stream） </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>数据结构和算法学习笔记</title>
-      <link href="/2024/04/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
-      <url>/2024/04/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<h1 id="数据结构和算法的定义"><a href="#数据结构和算法的定义" class="headerlink" title="数据结构和算法的定义"></a>数据结构和算法的定义</h1><h2 id="数据结构含义"><a href="#数据结构含义" class="headerlink" title="数据结构含义"></a>数据结构含义</h2><p>数据结构是计算机中存储，组织数据的方式。</p><p>有三个关键点：1. 数据 2. 存储 3. 组织(CRUD: 增删改查)</p><h2 id="算法含义"><a href="#算法含义" class="headerlink" title="算法含义"></a>算法含义</h2><p>为了更高效，科学，优等地进行组织</p><p><img src="/2024/04/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/image-20240401175554593.png"></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数据结构 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>hexo搭建博客</title>
       <link href="/2024/03/30/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
       <url>/2024/03/30/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
