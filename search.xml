@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title>区间合并</title>
+      <link href="/2024/10/23/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/"/>
+      <url>/2024/10/23/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="区间合并"><a href="#区间合并" class="headerlink" title="区间合并"></a>区间合并</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span>[][] merge(<span class="type">int</span>[][] a) &#123;  </span><br><span class="line">   <span class="keyword">if</span> (a == <span class="literal">null</span> || a.length == <span class="number">0</span> || a[<span class="number">0</span>].length == <span class="number">0</span>) &#123;  </span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>][<span class="number">2</span>];  </span><br><span class="line">   &#125;  </span><br><span class="line">   Arrays.sort(a, Comparator.comparingInt(item -&gt; item[<span class="number">0</span>]));  </span><br><span class="line">   List&lt;<span class="type">int</span>[]&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();  </span><br><span class="line">   <span class="keyword">for</span> (<span class="type">int</span>[] arr : a) &#123;  </span><br><span class="line">      <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> arr[<span class="number">0</span>];  </span><br><span class="line">      <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> arr[<span class="number">1</span>];  </span><br><span class="line">      <span class="keyword">if</span> (res.size() == <span class="number">0</span> || res.get(res.size() - <span class="number">1</span>)[<span class="number">1</span>] &lt; left) &#123;  </span><br><span class="line">         res.add(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;left, right&#125;);  </span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">         <span class="type">int</span> <span class="variable">newRight</span> <span class="operator">=</span> Math.max(res.get(res.size() - <span class="number">1</span>)[<span class="number">1</span>], left);  </span><br><span class="line">         res.set(res.size() - <span class="number">1</span>, <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;res.get(res.size() - <span class="number">1</span>)[<span class="number">0</span>], newRight&#125;);  </span><br><span class="line">      &#125;  </span><br><span class="line">   &#125;  </span><br><span class="line">   <span class="keyword">return</span> res.toArray(<span class="keyword">new</span> <span class="title class_">int</span>[res.size()][<span class="number">2</span>]);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 区间合并 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>离散化</title>
+      <link href="/2024/10/23/%E7%A6%BB%E6%95%A3%E5%8C%96/"/>
+      <url>/2024/10/23/%E7%A6%BB%E6%95%A3%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<h1 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 去重 + 排序  </span></span><br><span class="line">List&lt;Integer&gt; distinctSorterAlls = alls.stream().distinct().sorted().collect(Collectors.toList());  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 离散化映射，把离散化的下标映射到连续的数组下标 + 1for (int[] item : add) &#123;  </span></span><br><span class="line">   <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> Collections.binarySearch(distinctSorterAlls, item[<span class="number">0</span>]) + <span class="number">1</span>;  </span><br><span class="line">   a[index] += item[<span class="number">1</span>];  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 前缀和  </span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; distinctSorterAlls.size(); i++) &#123;  </span><br><span class="line">   s[i + <span class="number">1</span>] = s[i] + a[i];  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 离散化映射，把离散化的下标映射到连续的数组下标 + 1for (int[] item : query) &#123;  </span></span><br><span class="line">   <span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> Collections.binarySearch(distinctSorterAlls, item[<span class="number">0</span>]) + <span class="number">1</span>;  </span><br><span class="line">   <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> Collections.binarySearch(distinctSorterAlls, item[<span class="number">1</span>]) + <span class="number">1</span>;  </span><br><span class="line">   System.out.println(s[r + <span class="number">1</span>] - s[l]);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 前缀和 </tag>
+            
+            <tag> 离散化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>位运算</title>
       <link href="/2024/10/22/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
       <url>/2024/10/22/%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
