@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>快速幂</title>
+      <link href="/2024/11/26/%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
+      <url>/2024/11/26/%E5%BF%AB%E9%80%9F%E5%B9%82/</url>
+      
+        <content type="html"><![CDATA[<h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><p>为了高效地计算一个数的幂，在计算a^b^时候，可以将时间复杂度由O(b)降低至O(logb)</p><h3 id="快速幂算法的原理"><a href="#快速幂算法的原理" class="headerlink" title="快速幂算法的原理"></a>快速幂算法的原理</h3><p>快速幂算法的核心思想是利用指数的二进制展开和乘法的结合律。当我们计算 a^b^ 时，我们可以将指数 b分解为多个2的幂的和，例如：</p><p><img src="/2024/11/26/%E5%BF%AB%E9%80%9F%E5%B9%82/image-20241126174324998.png" alt="image-20241126174324998"></p><p>其中 b<del>i</del> 要么是0，要么是1（因为这是二进制表示）。因此，我们可以将 a^b^ 分解为：</p><p><img src="/2024/11/26/%E5%BF%AB%E9%80%9F%E5%B9%82/image-20241126174319351.png" alt="image-20241126174319351"></p><p><img src="/2024/11/26/%E5%BF%AB%E9%80%9F%E5%B9%82/image-20241126174331385.png" alt="image-20241126174331385"></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">long</span> <span class="title function_">fastPower</span><span class="params">(<span class="type">long</span> a, <span class="type">long</span> b, <span class="type">long</span> modulus)</span> &#123;</span><br><span class="line"><span class="type">long</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">//1.将指数b转换为二进制表示</span></span><br><span class="line">    <span class="keyword">while</span> (b &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">//2.从b的最低位开始，对于每一位：</span></span><br><span class="line">    <span class="comment">//如果这一位是1，那么将当前的底数a乘到结果中</span></span><br><span class="line">    <span class="keyword">if</span> ((b &amp; <span class="number">1</span>) == <span class="number">1</span>) res = (res * a) % modulus;</span><br><span class="line">        <span class="comment">//将底数a自乘（a = a * a)</span></span><br><span class="line">    a = (a * a) % modulus;</span><br><span class="line">        <span class="comment">//继续处理下一位，直到处理完所有位</span></span><br><span class="line">    b &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 位运算 </tag>
+            
+            <tag> 快速幂 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>高精度计算</title>
       <link href="/2024/11/23/%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97/"/>
       <url>/2024/11/23/%E9%AB%98%E7%B2%BE%E5%BA%A6%E8%AE%A1%E7%AE%97/</url>
@@ -387,11 +410,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 双指针算法 </tag>
-            
             <tag> 排序 </tag>
             
             <tag> 分治 </tag>
+            
+            <tag> 双指针算法 </tag>
             
         </tags>
       
