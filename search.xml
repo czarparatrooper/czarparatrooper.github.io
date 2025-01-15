@@ -4,6 +4,42 @@
   
     
     <entry>
+      <title>Queue浅析</title>
+      <link href="/2025/01/15/Queue%E6%B5%85%E6%9E%90/"/>
+      <url>/2025/01/15/Queue%E6%B5%85%E6%9E%90/</url>
+      
+        <content type="html"><![CDATA[<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><h2 id="队列定义"><a href="#队列定义" class="headerlink" title="队列定义"></a>队列定义</h2><p>队列（Queue）是一种先进先出（FIFO）的线性数据结构，它有两个主要操作：</p><ol><li>入队（Enqueue）：将元素添加到队列的尾部</li><li>出队（Dequeue）：从队列的头部移除元素</li></ol><p>队列的特点；先进入队列的元素会被先移除，遵循先进先出原则</p><h2 id="队列的特性"><a href="#队列的特性" class="headerlink" title="队列的特性"></a>队列的特性</h2><ul><li><p>先进先出（FIFO）：最先进入队列的元素会最先被溢出</p></li><li><p>操作受限：</p><ul><li>只能在队尾插入元素（入队）</li><li>只能在对头移除元素（出队）</li></ul></li><li><p>动态大小：队列的大小可以动态增长（除非是有界队列）</p></li><li><p>不允许随机访问：不能直接访问队列中间的元素</p></li></ul><h2 id="队列的基本操作"><a href="#队列的基本操作" class="headerlink" title="队列的基本操作"></a>队列的基本操作</h2><ol><li>入队（Enqueue）：<ol><li>将元素添加到队列的尾部</li><li>如果队列已满（有界队列），可能会抛出异常或返回错误</li></ol></li><li>出队（Dequeue）：<ol><li>移除并返回队列的头部元素</li><li>如果队列为空，可能会抛出异常或返回特殊值（null）</li></ol></li><li>查看队头元素（peek）：<ol><li>返回队列的头部元素，但不移除它</li><li>如果队列为空，可能会抛出异常或返回特殊值</li></ol></li><li>判断队列是否为空（isEmpty）：<ol><li>检查队列是否为空</li></ol></li><li>获取队列大小（Size）<ol><li>返回队列中元素的数量</li></ol></li></ol><h2 id="队列的实现方式"><a href="#队列的实现方式" class="headerlink" title="队列的实现方式"></a>队列的实现方式</h2><p>队列可以通过多种方式实现，常见的有以下两种：</p><h3 id="1-基于数组的实现"><a href="#1-基于数组的实现" class="headerlink" title="(1) 基于数组的实现"></a>(1) 基于数组的实现</h3><ul><li><strong>特点</strong>：<ul><li>使用数组存储元素。</li><li>需要维护队头和队尾的指针。</li><li>可以是 <strong>有界队列</strong>（固定大小）或 <strong>动态扩容队列</strong>。</li></ul></li><li><strong>优点</strong>：<ul><li>内存连续，访问速度快。</li></ul></li><li><strong>缺点</strong>：<ul><li>需要处理数组的扩容问题。</li><li>如果是有界队列，可能会浪费空间。</li></ul></li></ul><h4 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h4><ul><li>为了解决数组实现的队列在出队后空间浪费的问题，可以使用 <strong>循环队列</strong>。</li><li>循环队列通过模运算将队尾指针“绕回”数组开头，充分利用数组空间。</li></ul><h3 id="2-基于链表的实现"><a href="#2-基于链表的实现" class="headerlink" title="(2) 基于链表的实现"></a>(2) 基于链表的实现</h3><ul><li><strong>特点</strong>：<ul><li>使用链表存储元素。</li><li>需要维护队头和队尾的指针。</li></ul></li><li><strong>优点</strong>：<ul><li>动态扩容，无需担心空间浪费。</li><li>实现简单。</li></ul></li><li><strong>缺点</strong>：<ul><li>内存不连续，访问速度较慢。</li></ul></li></ul><h2 id="队列的常见变种"><a href="#队列的常见变种" class="headerlink" title="队列的常见变种"></a>队列的常见变种</h2><ol><li>双端队列（Deque）</li></ol><ul><li><p>概念：双端队列是一种允许在队头和队尾进行插入和删除操作的队列。它既可以用作队列，也可以用作栈</p></li><li><p>底层实现：</p><p>Deque接口的两个常见实现类：</p><ul><li><p>ArrayDeque:</p><ul><li>基于动态数组实现</li><li>使用循环数组来高效地支持队头和队尾的操作</li><li>默认初始容量为16，当数组满时会自动扩容（通常是当前容量的两倍）</li><li><strong>优点</strong>：内存连续，访问速度快</li><li><strong>缺点</strong>：扩容时需要复制数据</li></ul></li><li><p>Linked List：</p><ul><li>基于双向链表实现</li><li>每个节点包含前驱和后继指针，支持在队头和队尾的高效操作</li><li><strong>优点</strong>：动态扩容，不用担心空间浪费</li><li><strong>缺点</strong>：内存不连续，访问速度较慢</li></ul></li></ul></li><li><p>核心操作：</p><ul><li><p>队头操作：</p><ul><li><code>offerFirst（E e）</code>：在队头插入元素</li><li><code>pollFirst（）</code>：移除并返回队头元素</li><li><code>peekFirst（）</code>：返回队头元素，但不移除</li></ul></li><li><p>队尾操作：</p><ul><li><code>offerLast（E e）</code>：在队尾插入元素</li><li><code>pollLast（）</code>：移除并返回队尾元素</li><li><code>peekLast（）</code>：返回队尾元素，但不移除</li></ul></li></ul></li></ul><ol start="2"><li>优先级队列（Priority Queue）</li></ol><ul><li>概念：优先级队列是一种按优先级排序的队列，优先级高的元素先出队。默认情况下，优先级队列是小顶堆（最小元素在队头），但可以通过Comparator自定义排序规则</li><li>底层实现：<ul><li>基于堆（Heap）实现：<ul><li>优先级队列使用二叉堆（Binary Heap）实现</li><li>二叉堆是一种完全二叉树，分为小顶堆和大顶堆<ul><li>小顶堆：每个节点的值都小于或等于其子节点的值</li><li>大顶堆：每个节点的值都大于或等于其子节点的值</li></ul></li><li>堆的插入和删除擦欧总的时间复杂度为O(log n)</li></ul></li><li>动态数组：<ul><li>优先级队列使用动态数组存储堆中的元素</li><li>当数组满时，会自动扩容（通常是当前容量的1.5倍）</li></ul></li></ul></li><li>核心操作：<ul><li><code>offer(E e)</code>：将元素插入队列，并调整堆结构</li><li><code>poll()</code>：移除并返回队头元素（优先级最高的元素），并调整堆结构</li><li><code>peek()</code>：返回队头元素，但不移除</li></ul></li></ul><ol start="3"><li>阻塞队列（BlockingQueue）</li></ol><ul><li><p>概念：阻塞队列是一种支持阻塞操作的队列。当队列为空时，出队操作会被阻塞，知道队列中有元素；当队列已满时，入队操作会被阻塞，知道队列有空闲空间</p></li><li><p>底层实现：</p><p>BlockingQueue接口的4个常见实现类：</p><ul><li>ArrayBlockingQueue：<ul><li>基于数组实现的有界阻塞队列。</li><li>使用一个锁（<code>ReentrantLock</code>）和两个条件变量（<code>notEmpty</code> 和 <code>notFull</code>）来实现阻塞操作。</li><li><strong>优点</strong>：内存连续，访问速度快。</li><li><strong>缺点</strong>：固定大小，无法动态扩容。</li></ul></li><li>LinkedBlockingQueue：<ul><li>基于链表实现的可选有界阻塞队列。</li><li>使用两个锁（<code>putLock</code> 和 <code>takeLock</code>）来提高并发性能。</li><li><strong>优点</strong>：动态扩容，性能较高。</li><li><strong>缺点</strong>：内存不连续，访问速度较慢。</li></ul></li><li>SynchronousQueue：<ul><li>一种不存储元素的阻塞队列。</li><li>每个插入操作必须等待一个移除操作，反之亦然。</li><li><strong>适用场景</strong>：用于直接传递任务的场景。</li></ul></li><li>PriorityBlockingQueue：<ul><li>基于堆实现的无界阻塞队列。</li><li>支持按优先级排序。</li><li><strong>优点</strong>：动态扩容，支持优先级。</li></ul></li></ul></li><li><p>核心操作：</p><ul><li>插入元素：<ul><li><code>put(E e)</code>：将元素插入队列，如果队列已满则阻塞。</li><li><code>offer(E e, long timeout, TimeUnit unit)</code>：将元素插入队列，如果队列已满则等待指定的时间。</li></ul></li><li>移除元素：<ul><li><code>take()</code>：移除并返回队头元素，如果队列为空则阻塞。</li><li><code>poll(long timeout, TimeUnit unit)</code>：移除并返回队头元素，如果队列为空则等待指定的时间。</li></ul></li></ul></li></ul><ol start="4"><li>延迟队列（DelayQueue）</li></ol><ul><li><p>概述：延迟队列（DelayQueue）是一种存储延迟元素的队列。元素只有在指定的延迟时间到达后才能出队。</p></li><li><p>底层实现：</p><ul><li><p>基于优先级队列：</p><ul><li>延迟队列内部使用 <code>PriorityQueue</code> 来存储元素。</li><li>元素必须实现 <code>Delayed</code> 接口，该接口定义了 <code>getDelay()</code> 方法，用于获取剩余延迟时间。</li></ul></li><li><p>阻塞操作：</p><ul><li>当队列为空时，出队操作会被阻塞。</li><li>当队头元素的延迟时间未到达时，出队操作也会被阻塞。</li></ul></li></ul></li></ul><ul><li>核心操作<ul><li>插入元素：<ul><li><code>offer(E e)</code>：将元素插入队列。</li></ul></li><li>移除元素：<ul><li><code>take()</code>：移除并返回队头元素，如果延迟时间未到达则阻塞。</li><li><code>poll(long timeout, TimeUnit unit)</code>：移除并返回队头元素，如果延迟时间未到达则等待指定的时间。</li></ul></li></ul></li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> java </tag>
+            
+            <tag> Queue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL</title>
+      <link href="/2025/01/15/MySQL/"/>
+      <url>/2025/01/15/MySQL/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java反射</title>
       <link href="/2025/01/05/Java%E5%8F%8D%E5%B0%84/"/>
       <url>/2025/01/05/Java%E5%8F%8D%E5%B0%84/</url>
